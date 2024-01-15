@@ -183,4 +183,4 @@ st.write ('''**Select Mode**: Select level of Detail for Visualization.
 - *Details* show the detailes specifications of Processor, Original/Reprocessed, Baseline Collection''')
 
 st.sidebar.markdown('''<hr>''', unsafe_allow_html=True)
-st.sidebar.markdown('''<small>[eodata dashboard v1](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | [Anna-Lena Erdmann]</small>''', unsafe_allow_html=True)
+st.sidebar.markdown('''<small>[GitHub](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | Anna-Lena Erdmann</small>''', unsafe_allow_html=True)

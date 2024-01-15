@@ -24,4 +24,4 @@ Contents of the Dashboard:
 
 """)
 st.sidebar.markdown('''<hr>''', unsafe_allow_html=True)
-st.sidebar.markdown('''<small>[eodata dashboard v1](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | [Anna-Lena Erdmann]</small>''', unsafe_allow_html=True)
+st.sidebar.markdown('''<small>[GitHub](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | Anna-Lena Erdmann</small>''', unsafe_allow_html=True)
