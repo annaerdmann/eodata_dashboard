@@ -44,7 +44,7 @@ ds['product'] = ds['eodata_folder'].str.rstrip('_')
 
 #data import data documentation dataframe
 
-ds_doc = pd.read_csv('cf_eodata_documentation.csv')
+ds_doc = pd.read_csv('./data/cf_eodata_documentation.csv')
 
 #data maipulation
 
