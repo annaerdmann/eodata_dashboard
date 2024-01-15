@@ -181,3 +181,6 @@ st.write ('''**Select Product Type**: Select Product Type to Display. Product Ty
 st.write ('''**Select Mode**: Select level of Detail for Visualization. 
 - *Aggregated* shows the availability any data in the selected product type and timeliness. 
 - *Details* show the detailes specifications of Processor, Original/Reprocessed, Baseline Collection''')
+
+st.sidebar.markdown('''<hr>''', unsafe_allow_html=True)
+st.sidebar.markdown('''<small>[eodata dashboard v1](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | [Anna-Lena Erdmann]</small>''', unsafe_allow_html=True)

@@ -23,8 +23,5 @@ Contents of the Dashboard:
 2. Sentinel 3 data in /eodata
 
 """)
- 
-# tab1, tab2, tab3 = st.tabs(["1. Data Offer", "2. Completeness", "3. Comparison with EUM"])
-#st.line_chart(ds['availability_duration'])
-
-
+st.sidebar.markdown('''<hr>''', unsafe_allow_html=True)
+st.sidebar.markdown('''<small>[eodata dashboard v1](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | [Anna-Lena Erdmann]</small>''', unsafe_allow_html=True)
