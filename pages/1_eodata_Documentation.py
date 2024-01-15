@@ -15,7 +15,7 @@ st.write(
 
 
 #set working dir
-os.chdir('C:\\Users\\erdmann\\OneDrive - eumetsat.int\\Visual Studio\\eodata_dashboard')
+#os.chdir('C:\\Users\\erdmann\\OneDrive - eumetsat.int\\Visual Studio\\eodata_dashboard')
 
 
 #data import
