@@ -1,0 +1,36 @@
+Satellite,Product type,Sensor,level,timeliness,Spatial Range,start_date,end_date,Temporal Range,Type of Access
+Sentinel-1,GRD,SAR C-BAND,,,World,today - 1 year,today,Last 1 Year,IAD
+Sentinel-1,GRD-COG,SAR C-BAND,,,World,01/10/2014,today,Oct-14 - Present,IAD
+Sentinel-1,RTC,SAR C-BAND,,,World,01/12/2014,today,Dec-14 - Present,IAD
+Sentinel-1,OCN,SAR C-BAND,,,World,01/12/2014,today,Dec-14 - Present,IAD
+Sentinel-1,RAW,SAR C-BAND,,,Europe World Rest of World,01/01/2021,today,Jan-21 - Present Oct-14 - Present-1 year Last 1 year,IAD DAD IAD
+Sentinel-1,SLC,SAR C-BAND,,,World,01/10/2014,today,Oct-14 - Present,IAD
+Sentinel-2,L1C,MSI,1,,World,01/07/2015,today,Jul-15 - Present,IAD
+Sentinel-2,L2A,MSI,2,,World,01/07/2015,today,Jul-15 - Present,IAD
+Sentinel-3,OLCI Level-1 NTC,OLCI,1,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,OLCI Level-1 NRT,OLCI,1,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,OLCI Level-2 NTC,OLCI,2,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,OLCI Level-2 NRT,OLCI,2,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,SLSTR Level-1 NTC,SLSTR,1,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,SLSTR Level-1 NRT,SLSTR,1,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,SLSTR Level-2 NTC,SLSTR,2,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,SLSTR Level-2 NRT,SLSTR,2,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,SRAL Level-1 NTC,SRAL,1,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,SRAL Level-1 STC,SRAL,1,STC,World,today - 1 month,today,Last 1 month,IAD
+Sentinel-3,SRAL Level-1 NRT,SRAL,1,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,SRAL Level-2 NTC,SRAL,2,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,SRAL Level-2 STC,SRAL,2,STC,World,today - 1 month,today,Last 1 month,IAD
+Sentinel-3,SRAL Level-2 NRT,SRAL,2,NRT,World,today - 1 year,today,Last 1 year,IAD
+Sentinel-3,SYN Level-2 NTC,SYNERGY,2,NTC,World,01/03/2016,today,Mar-16 - Present,IAD
+Sentinel-3,SYN Level-2 STC,SYNERGY,2,STC,World,today - 1 month,today,Last 1 month,IAD
+Sentinel-5P,Level-1B NTC,TROPOMI,1,NTC,World,01/04/2018,today,Apr-18 - Present,IAD
+Sentinel-5P,Level-2 NTC,TROPOMI,2,NTC,World,01/04/2018,today,Apr-18 - Present,IAD
+Sentinel-5P,Level-2 NRT,TROPOMI,2,NRT,World,today - 1 month,today,Last 1 month,IAD
+Sentinel-6A,"L1, L2","POS-4, AMR-C",,,World,,,Full archive,IAD
+Landsat-5,"L1G, L1T, L1GT",TM,,,Europe,01/01/1984,31/12/2011,1984-2011,IAD
+Landsat-7,"L1G, L1T, L1GT",ET,,,Europe,01/01/1999,31/12/2017,1999-2017,IAD
+Landsat-8,"L1T, L1GT","OLI, OLI TIRS",,,,,,Coverage of Europe,IAD
+Envisat,L1,MERIS,,,World,01/01/2002,31/12/2012,2002-2012,IAD
+SMOS,"L1B, L1C, L2",MIRAS,,,World,01/01/2010,today,2010 - present,IAD
+S2GL,-,-,,,Europe,01/01/2017,31/12/2017,2017,IAD
+ECOSTRESS,-,-,,,WORLD,01/01/2022,31/12/2022,2022,
