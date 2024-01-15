@@ -19,7 +19,7 @@ os.chdir('C:\\Users\\erdmann\\OneDrive - eumetsat.int\\Visual Studio\\eodata_das
 
 
 #data import
-ds = pd.read_csv('cf_eodata_documentation.csv')
+ds = pd.read_csv('./data/cf_eodata_documentation.csv')
 
 #data maipulation
 
