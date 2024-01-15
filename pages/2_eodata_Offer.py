@@ -21,11 +21,11 @@ show_df = st.checkbox("Show Data")
 
 
 #set working dir
-os.chdir('C:\\Users\\erdmann\\OneDrive - eumetsat.int\\Visual Studio\\eodata_dashboard')
+#os.chdir('C:\\Users\\erdmann\\OneDrive - eumetsat.int\\Visual Studio\\eodata_dashboard')
 
 
 #data import data offer dataframe
-ds = pd.read_csv('eodatabase.csv')
+ds = pd.read_csv('./data/eodatabase.csv')
 ds = ds.dropna( axis=0, how='all')
 #data maipulation
 today = dt.date.today
