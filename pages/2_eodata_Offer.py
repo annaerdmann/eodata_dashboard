@@ -61,9 +61,10 @@ ds_doc['availability_duration'] = ds_doc['end_date'] - ds_doc['start_date']
 #ds_doc
 # Sidebar with interactive options
 select_instrument = st.sidebar.multiselect('Select Instrument', ds['sensor'].unique(), default = 'OLCI')
-select_timeliness = st.sidebar.multiselect('Select timeliness', ds[(ds['sensor'].isin(select_instrument))]['timeliness'].unique(), default = ['NRT', 'NTC'])
-select_level = st.sidebar.multiselect('Select Processing level', ds[(ds['sensor'].isin(select_instrument)) & (ds['timeliness'].isin(select_timeliness))]['level'].unique(), default = [0,1,2])
-select_product = st.sidebar.multiselect('Select Product Type', np.sort(ds[(ds['sensor'].isin(select_instrument)) & (ds['timeliness'].isin(select_timeliness)) & (ds['level'].isin(select_level))]['product'].unique()), default=['OL_0_EFR', 'OL_1_EFR', 'OL_2_WFR'])
+select_timeliness = st.sidebar.multiselect('Select timeliness', list(ds[(ds['sensor'].isin(select_instrument))]['timeliness'].unique()), default = ['NRT', 'NTC'])
+select_level = st.sidebar.multiselect('Select Processing level', ds[(ds['sensor'].isin(select_instrument)) & (ds['timeliness'].isin(select_timeliness))]['level'].unique(), default = [1])
+
+select_product = st.sidebar.multiselect('Select Product Type', list(np.sort(ds[(ds['sensor'].isin(select_instrument)) & (ds['timeliness'].isin(select_timeliness)) & (ds['level'].isin(select_level))]['product'].unique())))#, default=['OL_0_EFR', 'OL_1_EFR', 'OL_2_WFR'])
 mode = st.sidebar.selectbox('Select Mode', ['Aggregate', 'Details'])
 enable_comparison = st.sidebar.checkbox('Compare with the Documentation', value=False)
 
