@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import numpy as np
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 
 st.set_page_config(page_title="/eodata offer", page_icon="📈")
 st.markdown("# /eodata offer")
@@ -157,7 +158,7 @@ if enable_comparison:
     
 
 
-legend_items = [Line2D([0], [0], color=timeliness_color_map[timeliness], label=timeliness_labels[timeliness]) for timeliness in timeliness_labels]
+legend_items = [Patch(color=timeliness_color_map[timeliness], label=timeliness_labels[timeliness]) for timeliness in timeliness_labels]
 ax.legend(handles=legend_items)
 
 # Beautify the plot
@@ -181,7 +182,9 @@ st.write ('''**Select Processing Level**: Select Processing Level (0: Level-0 Pr
 st.write ('''**Select Product Type**: Select Product Type to Display. Product Type is made up of instrument index (e.g. OL), Level and product identifyier (WFR: water Full Resolution)''')
 st.write ('''**Select Mode**: Select level of Detail for Visualization. 
 - *Aggregated* shows the availability any data in the selected product type and timeliness. 
-- *Details* show the detailes specifications of Processor, Original/Reprocessed, Baseline Collection''')
+- *Details* show the detailes specifications of Processor, Original/Reprocessed, Baseline Collection
+- **Processors - LN, LR, PS**: data is harvested fom ESA; 
+- **Processors - MAR, MR**: data is harvested from EUMETSAT ''')
 
 st.sidebar.markdown('''<hr>''', unsafe_allow_html=True)
 st.sidebar.markdown('''<small>[GitHub](https://github.com/annaerdmann/eodata_dashboard)  | Jan 2024 | Anna-Lena Erdmann</small>''', unsafe_allow_html=True)

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 import numpy as np
 from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 
 st.set_page_config(page_title="Recommendation", page_icon="📈")
 st.markdown("# Comparison of the /eodata offer against the EUM recommendation")
@@ -127,10 +128,11 @@ ds['availability_duration'] = ds['end_date_eodata'] - ds['start_date_eodata']
 ds = ds.sort_values(by='start_date_eodata')
 ds['baseline_collection'] = ds['baseline_collection'].apply(format_with_zeros)
 ds['processing'] =np.where(ds['status'] == 'Original', ds['timeliness'] , ds['status'])
+
 ds['product'] = ds['eodata_folder'].str.rstrip('_')
 #ds['duration_eodata']= (ds['end_date_eodata'] - ds['start_date_eodata']).dt.days
-ds= ds[['start_date_eodata', 'end_date_eodata', 'processor', 'processing', 'baseline_collection', 'product']]
-ds = ds.groupby(['processing', 'baseline_collection', 'product',]).agg({
+ds= ds[['start_date_eodata', 'end_date_eodata', 'processor', 'processing', 'baseline_collection', 'product', 'source']]
+ds = ds.groupby(['processing', 'baseline_collection', 'product','source']).agg({
     'start_date_eodata': 'min',
     'end_date_eodata': 'max'
 }).reset_index().sort_values(['product'], ascending = True)
@@ -139,6 +141,7 @@ ds['duration_eodata']= (ds['end_date_eodata'] - ds['start_date_eodata']).dt.days
 
 eum_recomm_eodata = pd.merge(full_eum_recomm_eum, ds, on=['product', 'processing', 'baseline_collection'], how='outer')
 eum_recomm_eodata['processing'] = pd.Categorical(eum_recomm_eodata['processing'], categories=custom_order, ordered=True)
+eum_recomm_eodata['source_y'] = eum_recomm_eodata['source_y'].fillna('NA')
 #eum_recomm_eodata
 
 # Sidebar with interactive options
@@ -165,6 +168,8 @@ bar_width = 0.25  # Width of each bar
 # Define color mapping for timeliness
 timeliness_color_map = {'NRT': 'blue', 'NTC': 'green', 'STC': 'red', 'Reprocessed': 'yellow'}
 timeliness_labels = {'NRT': 'Near Real Time', 'NTC': 'Non-Time Critical', 'STC': 'Short-Time Critical', 'Reprocessed': 'Reprocessed'}
+source_color_map = {'ESA':'black', 'EUM':'blue', 'NA': 'grey'}
+source_labels = {'ESA':'eodata data from ESA', 'EUM':'eodata datat from EUMETSAT'}
 
 unique_products = filtered_ds['product'].unique()
 if len(unique_products) > 1: 
@@ -194,12 +199,13 @@ if len(unique_products) > 1:
             edgecolor='red',
             facecolor='none',
             alpha=0.9)
-        if eodata_offer:
+        if eodata_offer:  
+            color_eodata = product_data['source_y'].map(source_color_map)
             axs[i].barh(bar_positions, 
             product_data['duration_eodata'],
             height=bar_width*1.1, 
             left=product_data['start_date_eodata'],
-            edgecolor='blue',
+            edgecolor=color_eodata,
             facecolor='none',
             alpha=0.9)
         
@@ -211,6 +217,19 @@ if len(unique_products) > 1:
         
     # Adjust layout
     plt.tight_layout()
+    legend_items = [Patch( color=timeliness_color_map[timeliness], label=timeliness_labels[timeliness]) for timeliness in timeliness_labels]
+    if eum_recomm:
+        legend_items = legend_items + [Patch( edgecolor='red', facecolor='white', label='EUM recommendation')]
+    if eodata_offer:
+        legend_items = legend_items + [Patch( edgecolor=source_color_map[source], facecolor='white', label=source_labels[source]) for source in source_labels]
+    
+
+    items_per_column = 2
+
+    # Calculate the number of columns
+    num_columns = (len(legend_items) + items_per_column - 1) // items_per_column
+
+    fig.legend(handles=legend_items, ncol=num_columns, bbox_to_anchor=(0.5, 1.15), loc='upper center')
     st.pyplot(fig)
 
 if len(unique_products)==1: 
